@@ -1,0 +1,553 @@
+@font-face {
+  font-family: "Times New Roman Pixel";
+  src: url("./pixelated-times-new-roman.otf.woff2/pixelated-times-new-roman.otf.woff2");
+  font-weight: normal;
+}
+
+html {
+  // background: red;
+  padding: 0;
+}
+
+body {
+  color: rgb(58, 58, 82);
+  user-select: none;
+  font-family: sans-serif;
+  // font-family: "Times New Roman Pixel";
+  font-size: 24px;
+  // font-smooth: never;
+  // -webkit-font-smoothing: none;
+  width: 1024px;
+  height: 768px;
+  background: white;
+  // background: url("./paper.png");
+  margin: 0;
+  // outline: 1px solid black;
+  overflow: hidden;
+  position: relative;
+}
+
+#root {
+  height: 100%;
+}
+
+.games-screen {
+  position: relative;
+  transition: filter 0.5s, transform 0.5s;
+  height: 100%;
+
+  &.blur {
+    filter: blur(10px);
+    transform: scale(1.1, 1.1);
+  }
+
+  .window {
+    position: relative;
+    border-radius: 14px;
+    background: rgb(49, 49, 255);
+    box-shadow: 0px 20px 20px -30px inset rgb(173, 173, 190),
+      0px 40px 20px -20px inset rgb(45, 45, 165),
+      0px 0px 3px 3px inset rgb(14, 14, 99);
+    padding: 80px 10px 10px 10px;
+    height: 100%;
+  }
+
+  .window-inner {
+    position: relative;
+    background: white;
+    height: 88.4%;
+    border: 2px inset #ccc;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 40px;
+    height: 60px;
+    background: #ccc;
+    left: 10px;
+    right: 10px;
+  }
+}
+
+.games {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  // width: 100%;
+  flex-wrap: wrap;
+  filter: blur(0px);
+  padding-top: 50px;
+  padding-left: 170px;
+}
+
+.game {
+  background: white;
+  width: 240px;
+  outline: 1px solid rgb(197, 197, 197);
+  transition: outline 0.1s, box-shadow 0.2s, transform 0.1s;
+  // box-shadow: 0px 0px 10px -5px black;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 16px;
+  border-radius: 6px;
+
+  &:hover {
+    outline: 0.2em solid rgb(67, 67, 148);
+    cursor: pointer;
+    box-shadow: 0px 0px 20px rgb(61, 61, 195);
+    transform: scale(110%, 110%);
+    z-index: 2;
+  }
+
+  &:active {
+    transform: scale(120%, 120%);
+    box-shadow: 0px 0px 10px blue;
+    outline: 0.1em solid rgb(0, 0, 250);
+    // box-shadow: inset 2px 2px 10px blue;
+  }
+
+  .title {
+    font-weight: bold;
+    padding: 0.5em;
+  }
+}
+
+.preview {
+  width: 240px;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+}
+
+.preview-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  // background: white;
+  // background: url("./paper.jpg");
+  // width: 100%;
+  // min-height: 100%;
+
+  .gameguard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s, backdrop-filter 0.5s, transform 0.5s;
+    transform: scale(0.8, 0.8);
+    &.show {
+      opacity: 1;
+      backdrop-filter: blur(10px);
+      background-image: url(./assets/noprotect.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1, 1);
+    }
+
+    .gameguard-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      border: 1px outset rgb(200, 200, 200);
+      background: rgb(200, 200, 200);
+      width: 250px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .progress-panel {
+      border: 1px solid #999;
+      box-shadow: inset 1px 1px white;
+      padding: 10px;
+      margin-top: 10px;
+
+      .resolving {
+        margin-top: -17px;
+        span {
+          padding: 5px;
+          background-color: rgb(200, 200, 200);
+        }
+      }
+
+      .loading-bar {
+        border: 1px inset #fff;
+        height: 7px;
+        margin: 15px 0px 10px 0px;
+        .progress {
+          width: 100%;
+          height: 100%;
+          background-color: navy;
+        }
+      }
+    }
+  }
+
+  .window-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  transition: opacity 0.3s, transform 0.5s;
+  transform: scale(0.5, 0.5);
+
+  &.show {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  &.hide {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .window {
+    background: white;
+    position: absolute;
+    border: 3px solid rgba(67, 69, 65, 1);
+    border-radius: 10px;
+    top: 4em;
+    bottom: 4em;
+    left: 4em;
+    right: 4em;
+    box-shadow: 5px 5px 5px rgb(123, 123, 123);
+  }
+
+  .topbar {
+    position: absolute;
+    // border: 2px solid fuchsia;
+    background: linear-gradient(
+      0deg,
+      rgba(67, 69, 65, 1) 0%,
+      rgba(36, 29, 29, 1) 48%,
+      rgba(53, 43, 43, 1) 52%,
+      rgba(81, 66, 66, 1) 69%,
+      rgba(115, 94, 94, 1) 92%
+    );
+    top: 0.1em;
+    left: 0.1em;
+    right: 0.1em;
+    height: 5em;
+    border-radius: 7px 7px 0px 0px;
+  }
+
+  .close-button {
+    position: absolute;
+    border-radius: 50px;
+    border: 4px outset rgb(158, 158, 158);
+    box-shadow: 1px 1px 5px -2px black;
+    transition: box-shadow 0.2s, transform 0.2s;
+    outline: 0.05em solid white;
+
+    background: linear-gradient(
+      0deg,
+      rgba(67, 69, 65, 1) 0%,
+      rgba(36, 29, 29, 1) 48%,
+      rgba(53, 43, 43, 1) 52%,
+      rgba(81, 66, 66, 1) 69%,
+      rgba(115, 94, 94, 1) 92%
+    );
+    color: white;
+    // background: radial-gradient(
+    //   circle,
+    //   rgba(179, 190, 255, 1) 0%,
+    //   rgba(255, 0, 255, 1) 100%
+    // );
+    top: 0.2em;
+    width: 0.8em;
+    right: 0.2em;
+    bottom: 0.2em;
+    text-align: center;
+    font-size: 48px;
+    font-family: "Times New Roman Pixel";
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2, 1.2);
+      box-shadow: 5px 5px 10px -5px black;
+    }
+
+    &:active {
+      border: 4px inset rgb(95, 95, 95);
+    }
+  }
+
+  .title {
+    color: white;
+    margin-top: 0.4em;
+    margin-left: 0.4em;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    font-size: 2.5em;
+    font-family: sans-serif;
+  }
+
+  .playbar {
+    position: absolute;
+    bottom: 0.1em;
+    left: 0.1em;
+    right: 0.1em;
+    height: 9em;
+    background-color: rgb(240, 240, 240);
+
+    .fake-loader {
+      position: absolute;
+      top: 1.3em;
+      left: 1em;
+      right: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .fake-loading {
+        width: 100%;
+        height: 24px;
+        background: rgb(209, 209, 209);
+        overflow: hidden;
+        border-radius: 6px;
+
+        .fake-loading-bar {
+          background: linear-gradient(
+            0deg,
+            rgb(23, 138, 17) 0%,
+            rgb(29, 108, 39) 18%,
+            rgb(25, 146, 9) 32%,
+            rgb(24, 157, 15) 49%,
+            rgb(20, 236, 8) 92%
+          );
+          height: 100%;
+        }
+      }
+    }
+
+    .play-button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 3em;
+      // font-family: "Times New Roman Pixel";
+      color: white;
+      position: absolute;
+      top: 0.4em;
+      bottom: 0.4em;
+      right: 0.4em;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 94, 0, 1) 0%,
+        rgb(255, 164, 89) 50%,
+        rgba(253, 193, 29, 1) 50%,
+        rgba(255, 238, 0, 1) 95%,
+        rgb(248, 245, 201) 95%,
+        rgb(248, 245, 201) 100%
+      );
+      border: 2px solid rgb(255, 68, 0);
+      // text-shadow: -3px 0 5px white, 3px 0 5px white, 0 3px 5px white,
+      //   0 -3px 5px white;
+      text-shadow: 0px 0px 10px rgba(255, 94, 0, 1);
+      box-shadow: inset 0px 0px 5px white, inset 0px 0px 10px white,
+        0px 0px 10px rgba(255, 94, 0, 1);
+      .play-inner {
+        margin-top: 0.4em;
+        margin-left: 0.9em;
+        margin-right: 0.9em;
+      }
+
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s, background-color 0.1s;
+      &:hover {
+        background: linear-gradient(
+          0deg,
+          rgba(255, 94, 0, 1) 0%,
+          rgb(255, 192, 141) 50%,
+          rgb(255, 216, 108) 50%,
+          rgb(255, 242, 62) 95%,
+          rgb(248, 245, 201) 95%,
+          rgb(248, 245, 201) 100%
+        );
+        transform: scale(1.05, 1.05);
+        box-shadow: inset 0px 0px 5px white, 5px 5px 10px -5px black;
+      }
+
+      &:active {
+        transform: scale(0.95, 0.95);
+        box-shadow: inset 0px 0px 5px white, inset 5px 5px 10px -5px black;
+        background: linear-gradient(
+          0deg,
+          rgb(248, 245, 201) 0%,
+          rgb(248, 245, 201) 5%,
+          rgba(255, 238, 0, 1) 6%,
+          rgba(253, 193, 29, 1) 50%,
+          rgb(255, 164, 89) 51%,
+          rgba(255, 94, 0, 1) 100%
+        );
+      }
+    }
+  }
+
+  .bio {
+    position: absolute;
+    left: 1em;
+    top: 4em;
+    width: 40%;
+    font-size: 1.5em;
+    p {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    h1 {
+      font-size: 1em;
+      padding: 0;
+      margin-top: 0.5em;
+      margin-bottom: 0;
+    }
+    br {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .media {
+    position: absolute;
+    right: 2em;
+    top: 7em;
+    width: 50%;
+    height: 100%;
+    .media-preview {
+      width: 100%;
+      height: 50%;
+      outline: 1px solid #ccc;
+      background-color: white;
+      background-repeat: no-repeat;
+      background-size: fit;
+      background-position: center;
+    }
+  }
+  .media-list {
+    margin-top: 0.5em;
+    display: flex;
+    height: 5em;
+    gap: 0.5em;
+    .media-thumbnail {
+      width: 20%;
+      height: 100%;
+      outline: 1px solid #ccc;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s, box-shadow 0.5s;
+      cursor: pointer;
+      &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 10px black;
+      }
+      &.active {
+        outline: 3px solid black;
+      }
+      &:active {
+        // transition: transform 0s, box-shadow 0s;
+        outline: 3px solid fuchsia;
+        // transform: translate(-1px, -1px);
+        // box-shadow: 3px 3px 3px black;
+      }
+    }
+  }
+}
+
+.megank {
+  .logo {
+    background-image: url("./assets/megank.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 170px;
+    height: 80px;
+    background-color: white;
+    box-shadow: 0px 1px 5px #ccc;
+  }
+
+  .topbar {
+    position: absolute;
+    background-image: url("./assets//topbar.png");
+    top: 0px;
+    left: 170px;
+    right: 0px;
+    background-position: 0px 0px;
+    background-size: auto 160px;
+    border-bottom: 1px solid rgb(49, 44, 92);
+    font-family: arial;
+    font-weight: bold;
+    font-size: 0.75em;
+    color: white;
+    text-align: left;
+    padding: 5px;
+    padding-right: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+}
+
+.sidebar {
+  font-size: 16px;
+  position: absolute;
+  left: 10px;
+  top: 80px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 0px 6px;
+  border-right: 0px;
+  border-top: 0px;
+  padding-bottom: 500px;
+  padding-top: 20px;
+
+  div {
+    border-bottom: 1px solid #ccc;
+    padding-left: 20px;
+  }
+}
+
+.search {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: white;
+
+  input {
+    padding: 5px 5px 5px 15px;
+    border-radius: 0px;
+    background-color: transparent;
+    border: 0px;
+  }
+  .search-button {
+    display: inline-block;
+    width: 25px;
+    margin: 1px;
+    border-radius: 3px;
+    background: linear-gradient(
+      0deg,
+      rgba(56, 129, 201, 1) 0%,
+      rgba(75, 147, 214, 1) 52%,
+      rgba(138, 206, 255, 1) 92%
+    );
+    .search-icon {
+      width: 100%;
+      height: 100%;
+      background-image: url("./assets/icons/search-solid.png");
+      background-size: auto 15px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
