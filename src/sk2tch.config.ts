@@ -9,7 +9,7 @@ import { Sk2tchConfig } from "sk2tch/cli/sk2tch.config";
 
 const config: Sk2tchConfig = {
   name: "Arcade",
-  entry: "./index.jsx",
+  entry: "./index.tsx",
   output: "./dist",
   code: "arcade",
 

@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.ts": "typescript",
+    "functional": "cpp",
+    "optional": "cpp",
+    "regex": "cpp",
+    "system_error": "cpp",
+    "xlocmon": "cpp",
+    "xtr1common": "cpp"
+  }
+}
