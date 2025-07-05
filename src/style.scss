@@ -23,7 +23,7 @@ body {
   // background: url("./paper.png");
   margin: 0;
   // outline: 1px solid black;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
 }
 
@@ -45,27 +45,59 @@ body {
     position: relative;
     border-radius: 14px;
     background: rgb(49, 49, 255);
-    box-shadow: 0px 20px 20px -30px inset rgb(173, 173, 190),
+    box-shadow: 0px 12px 3px -10px inset rgb(180, 226, 255),
       0px 40px 20px -20px inset rgb(45, 45, 165),
       0px 0px 3px 3px inset rgb(14, 14, 99);
-    padding: 80px 10px 10px 10px;
     height: 100%;
+    display: flex;
   }
 
   .window-inner {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 10px 10px 10px 10px;
+  }
+
+  .title-bar {
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0px;
+  }
+
+  .body {
     position: relative;
     background: white;
-    height: 88.4%;
     border: 2px inset #ccc;
+    flex-grow: 1;
   }
 
   .toolbar {
-    position: absolute;
-    top: 40px;
-    height: 60px;
+    // position: absolute;
+    // top: 40px;
+    font-size: 16px;
     background: #ccc;
-    left: 10px;
-    right: 10px;
+    // left: 10px;
+    // right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .address-text {
+    margin: 7px 6px;
+    color: #888;
+  }
+
+  .address {
+    width: 50px;
+    padding: 5px;
+    background: white;
+    border: 1px inset white;
+    flex-grow: 1;
+    margin: 2px;
   }
 }
 
@@ -76,8 +108,7 @@ body {
   // width: 100%;
   flex-wrap: wrap;
   filter: blur(0px);
-  padding-top: 50px;
-  padding-left: 170px;
+  padding-top: 20px;
 }
 
 .game {
@@ -459,14 +490,22 @@ body {
 }
 
 .megank {
+  display: flex;
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
   .logo {
     background-image: url("./assets/megank.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 150px;
-    position: absolute;
-    top: 0;
-    left: 0;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
     width: 170px;
     height: 80px;
     background-color: white;
@@ -474,11 +513,11 @@ body {
   }
 
   .topbar {
-    position: absolute;
+    // position: absolute;
     background-image: url("./assets//topbar.png");
-    top: 0px;
-    left: 170px;
-    right: 0px;
+    // top: 0px;
+    // left: 170px;
+    // right: 0px;
     background-position: 0px 0px;
     background-size: auto 160px;
     border-bottom: 1px solid rgb(49, 44, 92);
@@ -498,23 +537,36 @@ body {
 
 .sidebar {
   font-size: 16px;
-  position: absolute;
-  left: 10px;
-  top: 80px;
+  // position: absolute;
+  // left: 10px;
+  // top: 80px;
   width: 150px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   border: 1px solid #ccc;
-  border-radius: 0px 0px 0px 6px;
-  border-right: 0px;
-  border-top: 0px;
-  padding-bottom: 500px;
+  border-radius: 0px 0px 6px 6px;
+  // border-right: 1px;
+  // border-top: 0px;
+  padding-bottom: 50px;
   padding-top: 20px;
 
   div {
     border-bottom: 1px solid #ccc;
+    padding: 5px;
     padding-left: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background: #ddd;
+    }
+  }
+
+  .selected {
+    background: #3e4eba;
+    color: white;
+    &:hover {
+      background: #4d60db;
+    }
   }
 }
 
@@ -550,4 +602,14 @@ body {
       background-position: center;
     }
   }
+}
+
+.screen-saver {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-color: red;
 }
