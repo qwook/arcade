@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import escapeCssUrl from "sk2tch/utils/escapeCssUrl";
+
+const Launcher = window.Launcher;
 
 export function Preview({ show, onCancel, previewData }) {
   const [currentMedia, setCurrentMedia] = useState(0);
@@ -7,6 +9,22 @@ export function Preview({ show, onCancel, previewData }) {
   const [progress, setProgress] = useState(0);
   const [gameguardProgress, setGameGuardProgress] = useState(0);
   const [showGameguard, setShowGameguard] = useState(false);
+
+  const launcher = useRef();
+
+  const startGame = () => {
+    setPlaying(true);
+    launcher.current = new Launcher(previewData.path);
+    console.log(launcher.current);
+    console.log(previewData.path);
+    launcher.current.start();
+    launcher.current.on("loaded", () => {
+      setShowGameguard(false);
+    })
+    launcher.current.on("exit", () => {
+      setPlaying(false);
+    })
+  }
 
   useEffect(() => {
     if (playing) {
@@ -121,7 +139,7 @@ export function Preview({ show, onCancel, previewData }) {
             <div
               className="play-button"
               onClick={(e) => {
-                setPlaying(true);
+                startGame();
               }}
             >
               <div className="play-inner">

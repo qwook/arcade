@@ -3,7 +3,9 @@ import { Preview } from "./preview";
 import { Game } from "./game";
 import { ScreenSaver } from "./screensaver";
 
-export default function Games() {
+window.setFullscreen(true);
+
+export default function GamesShowcase() {
   const [showPreview, setShowPreview] = useState(false);
   const [previewData, setPreviewData] = useState({});
 
@@ -55,6 +57,7 @@ export default function Games() {
                       require("./games/agameaboutme/preview.png"),
                       require("./games/bloodtoothtears/preview.png"),
                     ]}
+                    path="bloodtoothtears\\Blood, Tooth & Tears.exe"
                     onGameSelect={onGameSelect}
                   />
                   <Game

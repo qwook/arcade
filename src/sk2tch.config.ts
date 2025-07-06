@@ -12,6 +12,8 @@ const config: Sk2tchConfig = {
   entry: "./index.tsx",
   output: "./dist",
   code: "arcade",
+  electron: "./electron.js",
+  kiosk: true,
 
   releasing: {
     appId: "arcadeo.io.qwook",

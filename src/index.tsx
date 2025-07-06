@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "sk2tch/utils/reportWebVitals";
 
 import "./style.scss";
-import Games from "./games";
+import Games from "./gamesShowcase";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function ScreenSaver() {
+export const ScreenSaver = () => {
   const [showScreenSaver, setShowScreenSaver] = useState(false);
   const TIMEOUT_MS = 60 * 1000;
   useEffect(() => {
