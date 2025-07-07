@@ -3,7 +3,7 @@ import { Preview } from "./preview";
 import { Game } from "./game";
 import { ScreenSaver } from "./screensaver";
 
-window.setFullscreen(true);
+window.setFullscreen && window.setFullscreen(true);
 
 export default function GamesShowcase() {
   const [showPreview, setShowPreview] = useState(false);
