@@ -1,13 +1,15 @@
 // import * as Monitor from "../monitor/monitor.js"
-import {
-  Monitor
-} from "../monitor/build/Release/monitor.node"
+// import {
+//   Monitor
+// } from "../monitor/build/Release/monitor.node"
 import * as cp from "child_process";
 import EventEmitter from "events";
 import * as path from "path";
 const { ipcRenderer } = __non_webpack_require__("electron/renderer");
 
 const GAMES_ROOT = "C:\\Program Files (x86)\\arcade\\games"
+
+class Monitor {}
 
 class Launcher extends EventEmitter {
   path;
