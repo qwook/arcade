@@ -9,6 +9,7 @@ export function Preview({ show, onCancel, previewData }) {
   const [progress, setProgress] = useState(0);
   const [gameguardProgress, setGameGuardProgress] = useState(0);
   const [showGameguard, setShowGameguard] = useState(false);
+  const [showWebview, setShowWebview] = useState(false);
 
   const launcher = useRef();
 
@@ -50,9 +51,11 @@ export function Preview({ show, onCancel, previewData }) {
     if (!playing) {
       setShowGameguard(false);
       setProgress(0);
+      setShowWebview(false);
     } else {
       if (progress >= 150) {
         setShowGameguard(true);
+        setShowWebview(true);
       }
     }
   }, [progress, playing]);
@@ -170,6 +173,7 @@ export function Preview({ show, onCancel, previewData }) {
           </div>
         </div>
       </div>
+      {showWebview && previewData.webgame && <webview className="webview-game" src={previewData.path} />}
     </div>
   );
 }

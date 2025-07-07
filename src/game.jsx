@@ -1,8 +1,8 @@
 import escapeCssUrl from "sk2tch/utils/escapeCssUrl";
 
-export function Game({ preview, name, media, onGameSelect, path }) {
+export function Game({ preview, name, media, webgame, onGameSelect, path }) {
   return (
-    <div className="game" onClick={() => onGameSelect({ title: name, media, path })}>
+    <div className="game" onClick={() => onGameSelect({ title: name, media, path, webgame })}>
       <div
         className="preview"
         style={{

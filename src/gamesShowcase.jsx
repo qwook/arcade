@@ -20,6 +20,7 @@ export default function GamesShowcase() {
 
   return (
     <>
+    {/* <webview src="file:///C://Users//hen//AppData//Roaming//itch//apps//mine-blast//Mine%20Blast%20WebGL//index.html"></webview> */}
       <div className={["games-screen", showPreview ? "blur" : ""].join(" ")}>
         <div className="window">
           <div className="window-inner">
@@ -61,9 +62,11 @@ export default function GamesShowcase() {
                     onGameSelect={onGameSelect}
                   />
                   <Game
-                    name="a game about me"
-                    preview={require("./games/agameaboutme/preview.png")}
+                    name="mineblast"
+                    preview={require("./games/bloodtoothtears/preview.png")}
                     onGameSelect={onGameSelect}
+                    path="file://C://Program Files (x86)//arcade//games//mineblast//index.html"
+                    webgame
                   />
                   <Game
                     name="inside my 10 year old headd"
