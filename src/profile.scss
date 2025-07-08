@@ -1,0 +1,42 @@
+.profile {
+  display: flex;
+  color: white;
+  padding: 10px;
+  background: black;
+  margin-top: 10px;
+  gap: 10px;
+
+
+  .left {
+    display: flex;
+  }
+
+  .right {
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .panel {
+    border: 1px dashed white;
+    padding: 10px;
+
+    .title {
+      font-size: 20px;
+    }
+  }
+
+  .fakenav {
+    text-align: center;
+  }
+
+  .profile-pic {
+    width: 200px;
+  }
+}
