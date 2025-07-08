@@ -72,6 +72,7 @@ body {
     background: white;
     border: 2px inset #ccc;
     flex-grow: 1;
+    display: flex;
   }
 
   .toolbar {
@@ -113,7 +114,7 @@ body {
 
 .game {
   background: white;
-  width: 240px;
+  width: 180px;
   outline: 1px solid rgb(197, 197, 197);
   transition: outline 0.1s, box-shadow 0.2s, transform 0.1s;
   // box-shadow: 0px 0px 10px -5px black;
@@ -144,7 +145,7 @@ body {
 }
 
 .preview {
-  width: 240px;
+  width: 150px;
   height: 140px;
   background-size: cover;
   background-position: center;
@@ -491,6 +492,14 @@ body {
 
 .megank {
   display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-grow: 1;
+}
+
+.megank .zing {
+  display: flex;
+  flex-grow: 1;
 
   .right {
     display: flex;
@@ -533,75 +542,142 @@ body {
     align-items: center;
     flex-direction: row-reverse;
   }
-}
+  
+  .sidebar {
+    font-size: 16px;
+    // position: absolute;
+    // left: 10px;
+    // top: 80px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 0px 0px 6px 6px;
+    // border-right: 1px;
+    // border-top: 0px;
+    padding-bottom: 50px;
+    padding-top: 20px;
 
-.sidebar {
-  font-size: 16px;
-  // position: absolute;
-  // left: 10px;
-  // top: 80px;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  border-radius: 0px 0px 6px 6px;
-  // border-right: 1px;
-  // border-top: 0px;
-  padding-bottom: 50px;
-  padding-top: 20px;
+    div {
+      border-bottom: 1px solid #ccc;
+      padding: 5px;
+      padding-left: 20px;
+      cursor: pointer;
 
-  div {
-    border-bottom: 1px solid #ccc;
-    padding: 5px;
-    padding-left: 20px;
-    cursor: pointer;
+      &:hover {
+        background: #ddd;
+      }
+    }
 
-    &:hover {
-      background: #ddd;
+    .selected {
+      background: #3e4eba;
+      color: white;
+      &:hover {
+        background: #4d60db;
+      }
     }
   }
 
-  .selected {
-    background: #3e4eba;
-    color: white;
-    &:hover {
-      background: #4d60db;
-    }
-  }
-}
-
-.search {
-  display: flex;
-  border-radius: 3px;
-  overflow: hidden;
-  background-color: white;
-
-  input {
-    padding: 5px 5px 5px 15px;
-    border-radius: 0px;
-    background-color: transparent;
-    border: 0px;
-  }
-  .search-button {
-    display: inline-block;
-    width: 25px;
-    margin: 1px;
+  .search {
+    display: flex;
     border-radius: 3px;
-    background: linear-gradient(
-      0deg,
-      rgba(56, 129, 201, 1) 0%,
-      rgba(75, 147, 214, 1) 52%,
-      rgba(138, 206, 255, 1) 92%
-    );
-    .search-icon {
-      width: 100%;
-      height: 100%;
-      background-image: url("./assets/icons/search-solid.png");
-      background-size: auto 15px;
-      background-repeat: no-repeat;
-      background-position: center;
+    overflow: hidden;
+    background-color: white;
+
+    input {
+      padding: 5px 5px 5px 15px;
+      border-radius: 0px;
+      background-color: transparent;
+      border: 0px;
+    }
+    .search-button {
+      display: inline-block;
+      width: 25px;
+      margin: 1px;
+      border-radius: 3px;
+      background: linear-gradient(
+        0deg,
+        rgba(56, 129, 201, 1) 0%,
+        rgba(75, 147, 214, 1) 52%,
+        rgba(138, 206, 255, 1) 92%
+      );
+      .search-icon {
+        width: 100%;
+        height: 100%;
+        background-image: url("./assets/icons/search-solid.png");
+        background-size: auto 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     }
   }
+}
+
+.megank .yahoo {
+  background: rgb(255, 249, 249);
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  font-size: 14px;
+
+  .logo {
+    background-image: url("./assets/megank.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 150px;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    width: 170px;
+    height: 40px;
+  }
+
+  .center {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background: white;
+  }
+
+  .mainbar {
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 6px 6px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(0deg,rgb(63, 63, 63) 0%, rgb(63, 63, 63) 40%, rgba(111, 111, 111, 1) 70%, rgba(173, 173, 173, 1) 100%);
+  }
+
+  .subbar{
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(0deg,rgba(5, 5, 5, 1) 0%, rgb(86, 86, 86) 75%, rgb(104, 104, 104) 100%);
+    color: white;
+    border-radius: 0px 0px 6px 6px;
+    padding: 5px;
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      overflow: hidden;
+
+      .item {
+        cursor: pointer;
+        padding: 5px 10px;
+        border-right: 1px solid rgba(0,0,0,0.2);
+      }
+
+      .item.selected, .item:hover {
+        background: rgba(255, 255, 255, 0.3)
+      }
+    }
+  }
+  
 }
 
 .screen-saver {
@@ -610,7 +686,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  pointer-events: none;
+  cursor: none;
   // background-color: red;
 }
 
