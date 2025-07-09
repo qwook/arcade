@@ -3,6 +3,7 @@ import { Preview } from "./preview";
 import { Game } from "./game";
 import { ScreenSaver } from "./screensaver";
 import { Profile } from "./profile";
+import { FriendsList } from "./friendlist";
 
 window.setFullscreen && window.setFullscreen(true);
 
@@ -116,7 +117,8 @@ export default function GamesShowcase() {
               <MeGank screen={screen} setScreen={setScreen}>
                 {(() => {
                   if (screen === "friends") {
-                    return <Profile />
+                    // return <Profile />
+                    return <FriendsList />
                   } else {
                     return <Games onGameSelect={onGameSelect} />
                   }
