@@ -1,9 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import escapeCssUrl from "sk2tch/utils/escapeCssUrl";
+import { GAMES } from "./db/games";
+import { Router } from "./router";
+import { PROFILES } from "./db/profiles";
 
 const Launcher = window.Launcher;
 
-export function Preview({ show, onCancel, previewData }) {
+export function Preview({ show, onCancel, id }) {
   const [currentMedia, setCurrentMedia] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -11,13 +14,15 @@ export function Preview({ show, onCancel, previewData }) {
   const [showGameguard, setShowGameguard] = useState(false);
   const [showWebview, setShowWebview] = useState(false);
 
+  const { setUrl } = useContext(Router);
+
+  const game = GAMES[id] || {};
+
   const launcher = useRef();
 
   const startGame = () => {
     setPlaying(true);
-    launcher.current = new Launcher(previewData.path);
-    console.log(launcher.current);
-    console.log(previewData.path);
+    launcher.current = new Launcher(game.path);
     launcher.current.start();
     launcher.current.on("loaded", () => {
       setShowGameguard(false);
@@ -63,41 +68,39 @@ export function Preview({ show, onCancel, previewData }) {
   useEffect(() => {
     setProgress(0);
     setPlaying(false);
-  }, [previewData]);
+  }, [game]);
 
   return (
     <div className={["preview-screen", show ? "show" : "hide"].join(" ")}>
       <div className="window-wrapper">
         <div className="window">
           <div className="bio">
-            <h1>Henry Quoc Tran</h1>
-            Saigon, Vietnam
-            <h1>Dzuy</h1>
-            Vietnam
+            {
+              game.authors && game.authors.map((author_id) => {
+                const author = PROFILES[author_id];
+                return <h1 onClick={(e) => {
+                  setUrl(["friends", author_id]);
+                  onCancel();
+                }}>{author.name}</h1>
+              })
+            }
             <p>
               <i>Interactive mixed media, code on computer.</i>
             </p>
-            <p>
-              A flatgame about family betrayal, made for my 2nd-year's first
-              assignment at RMIT Vietnam.
-            </p>
-            <p>
-              Keys: [WASD] to move [Space] to speed up dialogues/ turn pages in
-              Credits
-            </p>
+            {game.description}
           </div>
-          {previewData.media && (
+          {game.screenshots && (
             <div className="media">
               <div
                 className="media-preview"
                 style={{
                   backgroundImage: `url(${escapeCssUrl(
-                    previewData.media[currentMedia]
+                    game.screenshots[currentMedia]
                   )})`,
                 }}
               />
               <div className="media-list">
-                {previewData.media.map((media, idx) => {
+                {game.screenshots.map((media, idx) => {
                   return (
                     <div
                       className={[
@@ -115,7 +118,7 @@ export function Preview({ show, onCancel, previewData }) {
             </div>
           )}
           <div className="topbar">
-            <div className="title">{previewData.title}</div>
+            <div className="title">{game.title}</div>
             <div className="close-button" onClick={onCancel}>
               X
             </div>
@@ -173,7 +176,6 @@ export function Preview({ show, onCancel, previewData }) {
           </div>
         </div>
       </div>
-      {showWebview && previewData.webgame && <webview className="webview-game" src={previewData.path} />}
     </div>
   );
 }

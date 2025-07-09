@@ -1,139 +1,107 @@
-import { useCallback, useState } from "react";
+import { createContext, useCallback, useContext, useRef, useState } from "react";
 import { Preview } from "./preview";
 import { Game } from "./game";
 import { ScreenSaver } from "./screensaver";
 import { Profile } from "./profile";
 import { FriendsList } from "./friendlist";
+import { Lag } from "./lag";
+import { Router, RouterProvider } from "./router";
+import "./scrollbar/scrollbar.scss";
+import { GAMES, GAMES_LIST } from "./db/games";
 
 window.setFullscreen && window.setFullscreen(true);
 
 function Games({onGameSelect}) {
   return <div className="games">
-      <Game
-        name="Blood, Tooth & Tears"
-        preview={require("./games/bloodtoothtears/preview.png")}
-        media={[
-          require("./games/bloodtoothtears/preview.png"),
-          require("./games/agameaboutme/preview.png"),
-          require("./games/bloodtoothtears/preview.png"),
-        ]}
-        path="bloodtoothtears\\Blood, Tooth & Tears.exe"
+    {GAMES_LIST.map((id) => {
+      return <Game
+        id={id}
         onGameSelect={onGameSelect}
       />
-      <Game
-        name="mineblast"
-        preview={require("./games/bloodtoothtears/preview.png")}
-        onGameSelect={onGameSelect}
-        path="file://C://Program Files (x86)//arcade//games//mineblast//index.html"
-        webgame
-      />
-      <Game
-        name="inside my 10 year old headd"
-        preview={require("./games/insidemy10yearoldheadd/preview.png")}
-        onGameSelect={onGameSelect}
-      />
-      <Game
-        name="inside my 10 year old headd"
-        preview={require("./games/insidemy10yearoldheadd/preview.png")}
-        onGameSelect={onGameSelect}
-      />
-      <Game
-        name="a game about me"
-        preview={require("./games/agameaboutme/preview.png")}
-        onGameSelect={onGameSelect}
-      />
-      <Game
-        name="Blood, Tooth & Tears"
-        preview={require("./games/bloodtoothtears/preview.png")}
-        onGameSelect={onGameSelect}
-      />
-      <Game
-        name="Blood, Tooth & Tears"
-        preview={require("./games/bloodtoothtears/preview.png")}
-        onGameSelect={onGameSelect}
-      />
-      <Game
-        name="Blood, Tooth & Tears"
-        preview={require("./games/bloodtoothtears/preview.png")}
-        onGameSelect={onGameSelect}
-      />
-      <Game
-        name="Blood, Tooth & Tears"
-        preview={require("./games/bloodtoothtears/preview.png")}
-        onGameSelect={onGameSelect}
-      />
-      <Game
-        name="Blood, Tooth & Tears"
-        preview={require("./games/bloodtoothtears/preview.png")}
-        onGameSelect={onGameSelect}
-      />
+    })}
     </div>
 }
 
-export default function GamesShowcase() {
+export default function App() {
+  return <RouterProvider><GamesShowcase /></RouterProvider>
+}
+
+export const PreviewContext = createContext();
+
+export function GamesShowcase() {
   const [showPreview, setShowPreview] = useState(false);
   const [previewData, setPreviewData] = useState({});
-
-  const onGameSelect = useCallback((previewData) => {
-    setShowPreview(true);
-    setPreviewData(previewData);
-  }, []);
+  const history = useRef(["games"]);
 
   const onCancel = useCallback(() => {
+    // setUrl(["games"]);
     setShowPreview(false);
   }, []);
 
   const [screen, setScreen] = useState("games");
+  const { url, setUrl } = useContext(Router);
+
+
+  const onGameSelect = useCallback((previewData) => {
+    // setShowPreview(true);
+    // setUrl(["games", "test"]);
+    setShowPreview(true);
+    setPreviewData(previewData);
+  }, []);
 
   return (
     <>
-      <div className={["games-screen", showPreview ? "blur" : ""].join(" ")}>
-        <div className="window">
-          <div className="window-inner">
-            <div className="title-bar">
-              <img
-                src={require("./assets/ie_icon.png")}
-                style={{ height: 19, marginRight: 7, verticalAlign: "bottom" }}
-              />
-              mẹGank - Games
-            </div>
-            <div className="toolbar">
-              <div className="address-text">
-                A<u>d</u>dress
-              </div>
-              <div className="address">
+      <PreviewContext.Provider value={{onGameSelect}}>
+        <div className={["games-screen", showPreview ? "blur" : ""].join(" ")}>
+          <div className="window">
+            <div className="window-inner">
+              <div className="title-bar">
                 <img
                   src={require("./assets/ie_icon.png")}
-                  style={{
-                    height: 19,
-                    marginRight: 7,
-                    verticalAlign: "bottom",
-                  }}
+                  style={{ height: 19, marginRight: 7, verticalAlign: "bottom" }}
                 />
-                https://mẹgank.cabin/{screen}
+                mẹGank - Games
               </div>
-            </div>
-            <div className="body">
-              <MeGank screen={screen} setScreen={setScreen}>
-                {(() => {
-                  if (screen === "friends") {
-                    // return <Profile />
-                    return <FriendsList />
-                  } else {
-                    return <Games onGameSelect={onGameSelect} />
-                  }
-                })()}
-              </MeGank>
+              <div className="toolbar">
+                <div className="address-text">
+                  A<u>d</u>dress
+                </div>
+                <div className="address">
+                  <img
+                    src={require("./assets/ie_icon.png")}
+                    style={{
+                      height: 19,
+                      marginRight: 7,
+                      verticalAlign: "bottom",
+                    }}
+                  />
+                  https://mẹgank.cabin/{url.join("/")}
+                </div>
+              </div>
+              <div className="body">
+                <MeGank screen={url[0]} setScreen={(screen) => setUrl([screen])}>
+                  {(() => {
+                    if (url[0] === "friends") {
+                      if (url[1]) {
+                        return <Profile id={url[1]} />
+                      }
+                      return <FriendsList />
+                    } else {
+                      return <Games onGameSelect={onGameSelect} />
+                    }
+                  })()}
+                </MeGank>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <Preview
-        previewData={previewData}
-        show={showPreview}
-        onCancel={onCancel}
-      />
-      <ScreenSaver />
+        <Preview
+          id={previewData}
+          show={showPreview}
+          onCancel={onCancel}
+        />
+        <ScreenSaver />
+      </PreviewContext.Provider>
     </>
   );
 }
@@ -163,63 +131,63 @@ function MeGank({ children, screen, setScreen }) {
   ]
 
   return (
-      <div className="megank">
+      <Lag className="megank">
     {
       (() => {
         if (screen === "friends") {
-          return <div className="yahoo">
-            <div className="center">
-              <div className="topbar">
-                <div className="mainbar">
-                  <div className="logo"></div>
-                  <div>Xin chao ban! [ EN / VN ]</div>
-                </div>
-                <div className="subbar">
-                  <div className="nav">
+          return <Lag className="yahoo">
+            <Lag className="center">
+              <Lag className="topbar">
+                <Lag className="mainbar">
+                  <Lag className="logo"></Lag>
+                  <Lag>Xin chao ban! [ EN / VN ]</Lag>
+                </Lag>
+                <Lag className="subbar">
+                  <Lag className="nav">
                   {
                     nav.map((item) => {
-                      return <div className={item.name === screen ? "item selected" : "item"} onClick={() => setScreen(item.name)}>
+                      return <Lag className={item.name === screen ? "item selected" : "item"} onClick={() => setScreen(item.name)}>
                         <img src={item.icon} />
                         &nbsp;{item.text}
-                      </div>
+                      </Lag>
                     })
                   }
-                  </div>
-                </div>
-              </div>
+                  </Lag>
+                </Lag>
+              </Lag>
               {children}
-            </div>
-          </div>
+            </Lag>
+          </Lag>
         } else {
           
-       return  (<div className="zing"><div className="left">
-          <div className="logo"></div>
-          <div className="sidebar">
+       return  (<Lag className="zing"><Lag className="left">
+          <Lag className="logo"></Lag>
+          <Lag className="sidebar">
             {
               nav.map((item) => {
-                return <div className={item.name === screen ? "selected" : ""} onClick={() => setScreen(item.name)}>
+                return <Lag className={item.name === screen ? "selected" : ""} onClick={() => setScreen(item.name)}>
                   <img src={item.icon} />
                   &nbsp;&nbsp;{item.text}
-                </div>
+                </Lag>
               })
             }
-          </div>
-        </div>
-        <div className="right">
-          <div className="topbar">
-            <div className="search">
+          </Lag>
+        </Lag>
+        <Lag className="right">
+          <Lag className="topbar">
+            <Lag className="search">
               <input type="text" placeholder={"Tìm kiếm"} />
-              <div className="search-button">
-                <div className="search-icon"></div>
-              </div>
-            </div>
-            <div>EN / VN</div>
-          </div>
-          <div className="content">{children}</div>
-      </div></div>)
+              <Lag className="search-button">
+                <Lag className="search-icon"></Lag>
+              </Lag>
+            </Lag>
+            <Lag>EN / VN</Lag>
+          </Lag>
+          <Lag className="content">{children}</Lag>
+      </Lag></Lag>)
         }
       })()
     }
-    </div>
+    </Lag>
   );
 }

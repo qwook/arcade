@@ -1,17 +1,21 @@
 import escapeCssUrl from "sk2tch/utils/escapeCssUrl";
+import { GAMES } from "./db/games";
 
-export function Game({ preview, name, media, webgame, onGameSelect, path }) {
+export function Game({ id, onGameSelect }) {
+  const game = GAMES[id] || {};
+
   return (
-    <div className="game" onClick={() => onGameSelect({ title: name, media, path, webgame })}>
+    <div className="game" onClick={() => onGameSelect(id)}>
       <div
         className="preview"
         style={{
           backgroundImage: `url(${escapeCssUrl(
-            preview || require("./games/bloodtoothtears/preview.png")
+            game.preview || require("./games/bloodtoothtears/preview.png")
           )})`,
         }}
       />
-      <div className="title">{name}</div>
+      <div className="title">{game.title}</div>
+      <div className="short">{game.short}</div>
     </div>
   );
 }
