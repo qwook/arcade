@@ -18,27 +18,30 @@ export const ScreenSaver = () => {
       window.screensaver.off("activity", activityCb);
       window.screensaver.off("idle", idleCb);
     }
-    // let timeout = setTimeout(() => {
-    //   setShowScreenSaver(true);
-    // }, TIMEOUT_MS);
-    // const activityCallback = () => {
-    //   setShowScreenSaver(false);
-    //   if (timeout) {
-    //     clearTimeout(timeout);
-    //   }
-    //   timeout = setTimeout(() => {
-    //     setShowScreenSaver(true);
-    //   }, TIMEOUT_MS);
-    // };
-    // document.body.addEventListener("keypress", activityCallback);
-    // document.body.addEventListener("mousemove", activityCallback);
-    // document.body.addEventListener("mousedown", activityCallback);
-    // return () => {
-    //   document.body.removeEventListener("keypress", activityCallback);
-    //   document.body.removeEventListener("mousemove", activityCallback);
-    //   document.body.removeEventListener("mousedown", activityCallback);
-    // };
   }, []);
+  
+  // useEffect(() => {
+  //   let timeout = setTimeout(() => {
+  //     setShowScreenSaver(true);
+  //   }, TIMEOUT_MS);
+  //   const activityCallback = () => {
+  //     setShowScreenSaver(false);
+  //     if (timeout) {
+  //       clearTimeout(timeout);
+  //     }
+  //     timeout = setTimeout(() => {
+  //       setShowScreenSaver(true);
+  //     }, TIMEOUT_MS);
+  //   };
+  //   document.body.addEventListener("keypress", activityCallback);
+  //   document.body.addEventListener("mousemove", activityCallback);
+  //   document.body.addEventListener("mousedown", activityCallback);
+  //   return () => {
+  //     document.body.removeEventListener("keypress", activityCallback);
+  //     document.body.removeEventListener("mousemove", activityCallback);
+  //     document.body.removeEventListener("mousedown", activityCallback);
+  //   };
+  // }, []);
 
   const parent = useRef();
   const pRef = useRef();

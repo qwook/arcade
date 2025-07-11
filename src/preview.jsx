@@ -1,8 +1,9 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import escapeCssUrl from "sk2tch/utils/escapeCssUrl";
 import { GAMES } from "./db/games";
 import { Router } from "./router";
 import { PROFILES } from "./db/profiles";
+import { QRCodeSVG } from "qrcode.react";
 
 const Launcher = window.Launcher;
 
@@ -72,6 +73,8 @@ export function Preview({ show, onCancel, id }) {
     setPlaying(false);
   }, [game]);
 
+  const mediaList = [...([game.preview] || []), ...(game.screenshots || [])];
+
   return (
     <div className={["preview-screen", show ? "show" : "hide"].join(" ")}>
       <div className="window-wrapper">
@@ -95,19 +98,21 @@ export function Preview({ show, onCancel, id }) {
               <i>Interactive mixed media, code on computer.</i>
             </p>
             {game.description}
+            
+            {game.url && <><h3>Play at Home:</h3><QRCodeSVG value={game.url} /></>}
           </div>
-          {game.screenshots && (
+          {mediaList && (
             <div className="media">
               <div
                 className="media-preview"
                 style={{
                   backgroundImage: `url(${escapeCssUrl(
-                    game.screenshots[currentMedia]
+                    mediaList[currentMedia]
                   )})`,
                 }}
               />
               <div className="media-list">
-                {game.screenshots.map((media, idx) => {
+                {mediaList.map((media, idx) => {
                   return (
                     <div
                       className={[

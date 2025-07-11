@@ -1,11 +1,12 @@
 import escapeCssUrl from "sk2tch/utils/escapeCssUrl";
 import { GAMES } from "./db/games";
+import { Lag } from "./lag";
 
 export function Game({ id, onGameSelect }) {
   const game = GAMES[id] || {};
 
   return (
-    <div className="game" onClick={() => onGameSelect(id)}>
+    <Lag className="game" onClick={() => onGameSelect(id)}>
       <div
         className="preview"
         style={{
@@ -16,6 +17,6 @@ export function Game({ id, onGameSelect }) {
       />
       <div className="title">{game.title}</div>
       <div className="short">{game.short}</div>
-    </div>
+    </Lag>
   );
 }

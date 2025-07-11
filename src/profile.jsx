@@ -29,7 +29,7 @@ export function Profile({id}) {
       <Lag className="panel">
         <Lag className="title">Games</Lag>
         <br />
-        <Lag>
+        <Lag className="games">
           {PROFILES[id].games.map((game_id) => {
             return <Game id={game_id} onGameSelect={onGameSelect} />
           })}

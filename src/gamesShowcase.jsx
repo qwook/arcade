@@ -8,6 +8,7 @@ import { Lag } from "./lag";
 import { Router, RouterProvider } from "./router";
 import "./scrollbar/scrollbar.scss";
 import { GAMES, GAMES_LIST } from "./db/games";
+import { Home } from "./home";
 
 window.setFullscreen && window.setFullscreen(true);
 
@@ -60,7 +61,7 @@ export function GamesShowcase() {
                   src={require("./assets/ie_icon.png")}
                   style={{ height: 19, marginRight: 7, verticalAlign: "bottom" }}
                 />
-                mẹGank - Games
+                mẹGank
               </div>
               <div className="toolbar">
                 <div className="address-text">
@@ -86,6 +87,8 @@ export function GamesShowcase() {
                         return <Profile id={url[1]} />
                       }
                       return <FriendsList />
+                    } else if (url[0] === "home") {
+                      return <Home />
                     } else {
                       return <Games onGameSelect={onGameSelect} />
                     }
@@ -123,11 +126,11 @@ function MeGank({ children, screen, setScreen }) {
       text: "Bạn Bè",
       icon: require("./assets/icons/user.png"),
     },
-    {
-      name: "contact",
-      text: "Tin nhắn",
-      icon: require("./assets/icons/comments.png"),
-    },
+    // {
+    //   name: "contact",
+    //   text: "Tin nhắn",
+    //   icon: require("./assets/icons/comments.png"),
+    // },
   ]
 
   return (
