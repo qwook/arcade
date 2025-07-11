@@ -1,0 +1,151 @@
+
+.friends {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: start;
+  .panel {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 6px;
+    padding: 10px;
+    width: 500px;
+    gap: 10px;
+  }
+  .heading {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 2px 10px black;
+    display: flex;
+    align-items: center;
+    background-image: url("./assets/placeholders/sp_bars.png");
+    background-position: top right;
+    height: 34px;
+    position: relative;
+    margin-left: 40px;
+    z-index: 1;
+    &:before {
+      content: "";
+      position: absolute;
+      background-image: url("./assets/placeholders/sp_bars.png");
+      height: 34px;
+      width: 40px;
+      right: 100%;
+      z-index: -1;
+    }
+  }
+  
+  .heading2 {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 2px 10px black;
+    display: flex;
+    align-items: center;
+    background-image: url("./assets/placeholders/sp_bars.png");
+    background-position: top right;
+    background-position-y: -37px;
+    height: 34px;
+    position: relative;
+    margin-left: 40px;
+    z-index: 1;
+    &:before {
+      content: "";
+      position: absolute;
+      background-image: url("./assets/placeholders/sp_bars.png");
+      background-position-y: -37px;
+      height: 34px;
+      width: 40px;
+      right: 100%;
+      z-index: -1;
+    }
+  }
+
+  .welcome {
+    background: rgb(173, 255, 85);
+    .avatar {
+      background-image: url("./assets/placeholders/sp_bg.png");
+      height: 200px;
+      .bubble {
+        padding-top: 40px;
+        padding-left: 80px;
+        width:  150px;
+      }
+      .bubble-inner {
+        background: #f0ffba;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.407);
+      }
+    }
+  }
+
+  .friend-list {
+    // height: 390px;
+    // overflow: hidden;
+  }
+
+  .friend {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+    
+    .person {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .avatar-wrapper {
+        border: 1px solid #ccc;
+        padding: 5px;
+        width: 40px;
+        .avatar {
+          background-image: url("./profiles/qwook/profile.jpg");
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .name {
+        width: 100px;
+        color: rgb(61, 94, 160);
+        font-size: 11px;
+        text-decoration: underline;
+      }
+    }
+    
+    .quote {
+      border-radius: 6px;
+      color: black;
+      font-size: 12px;
+      background: linear-gradient(0deg,rgb(228, 204, 150) 0%, rgb(255, 224, 161) 50%,  rgb(255, 246, 229) 100%);
+      box-shadow: 1px 1px 0px rgb(179, 145, 91);
+      padding: 10px;
+      position: relative;
+      flex-grow: 1;
+
+      &::before {
+        content: " ";
+        display: block;
+        background: linear-gradient(-25deg,rgb(230, 198, 139) 0%, rgb(255, 232, 190) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+        box-shadow: 0px 1px 0px rgb(179, 145, 91);
+        position: absolute;
+        top: 10px;
+        right: 100%;
+        width: 30px;
+        height: 15px;
+        z-index: 100;
+      }
+    }
+  }
+}

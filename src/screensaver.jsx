@@ -5,26 +5,39 @@ export const ScreenSaver = () => {
   const [showScreenSaver, setShowScreenSaver] = useState(false);
   const TIMEOUT_MS = 1 * 1000;
   useEffect(() => {
-    let timeout = setTimeout(() => {
-      setShowScreenSaver(true);
-    }, TIMEOUT_MS);
-    const activityCallback = () => {
+    if (!window.screensaver) return;
+    const activityCb = () => {
       setShowScreenSaver(false);
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-      timeout = setTimeout(() => {
-        setShowScreenSaver(true);
-      }, TIMEOUT_MS);
-    };
-    document.body.addEventListener("keypress", activityCallback);
-    document.body.addEventListener("mousemove", activityCallback);
-    document.body.addEventListener("mousedown", activityCallback);
+    }
+    window.screensaver.on("activity", activityCb);
+    const idleCb = () => {
+      setShowScreenSaver(true);
+    }
+    window.screensaver.on("idle", idleCb);
     return () => {
-      document.body.removeEventListener("keypress", activityCallback);
-      document.body.removeEventListener("mousemove", activityCallback);
-      document.body.removeEventListener("mousedown", activityCallback);
-    };
+      window.screensaver.off("activity", activityCb);
+      window.screensaver.off("idle", idleCb);
+    }
+    // let timeout = setTimeout(() => {
+    //   setShowScreenSaver(true);
+    // }, TIMEOUT_MS);
+    // const activityCallback = () => {
+    //   setShowScreenSaver(false);
+    //   if (timeout) {
+    //     clearTimeout(timeout);
+    //   }
+    //   timeout = setTimeout(() => {
+    //     setShowScreenSaver(true);
+    //   }, TIMEOUT_MS);
+    // };
+    // document.body.addEventListener("keypress", activityCallback);
+    // document.body.addEventListener("mousemove", activityCallback);
+    // document.body.addEventListener("mousedown", activityCallback);
+    // return () => {
+    //   document.body.removeEventListener("keypress", activityCallback);
+    //   document.body.removeEventListener("mousemove", activityCallback);
+    //   document.body.removeEventListener("mousedown", activityCallback);
+    // };
   }, []);
 
   const parent = useRef();

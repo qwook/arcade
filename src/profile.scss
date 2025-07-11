@@ -1,0 +1,71 @@
+.profile {
+  display: flex;
+  color: white;
+  padding: 10px;
+  background: black;
+  margin-top: 10px;
+  gap: 10px;
+
+
+  .left {
+    display: flex;
+  }
+
+  .right {
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .panel {
+    border: 1px dashed white;
+    padding: 10px;
+
+    .title {
+      font-size: 20px;
+    }
+  }
+
+  .fakenav {
+    text-align: center;
+  }
+
+  .profile-pic {
+    width: 200px;
+  }
+
+  .quote {
+    border-radius: 6px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    background: rgb(237, 246, 255);
+    padding: 10px;
+    position: relative;
+
+    &::before {
+      content: " ";
+      display: block;
+      background: linear-gradient(-25deg,rgb(237, 246, 255) 0%, rgb(237, 246, 255) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+      position: absolute;
+      top: 10px;
+      right: 100%;
+      width: 30px;
+      height: 15px;
+      z-index: 100;
+    }
+  }
+
+  .game {
+    border-radius: 0px;
+    color: black;
+    .title {
+      font-size: 12px;
+    }
+  }
+}

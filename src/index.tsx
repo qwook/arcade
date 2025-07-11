@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "sk2tch/utils/reportWebVitals";
 
 import "./style.scss";
-import Games from "./gamesShowcase";
+import GamesShowcase from "./gamesShowcase";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Games />
+    <GamesShowcase />
   </React.StrictMode>
 );
 
