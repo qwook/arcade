@@ -9,6 +9,12 @@ html {
   padding: 0;
 }
 
+body, img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
 body {
   color: rgb(58, 58, 82);
   user-select: none;
@@ -186,7 +192,7 @@ body {
     &.show {
       opacity: 1;
       backdrop-filter: blur(10px);
-      background-image: url(./assets/noprotect.jpg);
+      background-image: url(./assets/noprotect.gif);
       background-position: center;
       background-repeat: no-repeat;
       transform: scale(1, 1);

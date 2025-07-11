@@ -22,15 +22,17 @@ export function Preview({ show, onCancel, id }) {
 
   const startGame = () => {
     setPlaying(true);
-    launcher.current = new Launcher(game.path);
-    launcher.current.start();
-    launcher.current.on("loaded", () => {
-      setShowGameguard(false);
-    })
-    launcher.current.on("exit", () => {
-      setPlaying(false);
-    })
-  }
+    if (Launcher) {
+      launcher.current = new Launcher(game.path);
+      launcher.current.start();
+      launcher.current.on("loaded", () => {
+        setShowGameguard(false);
+      });
+      launcher.current.on("exit", () => {
+        setPlaying(false);
+      });
+    }
+  };
 
   useEffect(() => {
     if (playing) {
@@ -75,15 +77,20 @@ export function Preview({ show, onCancel, id }) {
       <div className="window-wrapper">
         <div className="window">
           <div className="bio">
-            {
-              game.authors && game.authors.map((author_id) => {
+            {game.authors &&
+              game.authors.map((author_id) => {
                 const author = PROFILES[author_id];
-                return <h1 onClick={(e) => {
-                  setUrl(["friends", author_id]);
-                  onCancel();
-                }}>{author.name}</h1>
-              })
-            }
+                return (
+                  <h1
+                    onClick={(e) => {
+                      setUrl(["friends", author_id]);
+                      onCancel();
+                    }}
+                  >
+                    {author.name}
+                  </h1>
+                );
+              })}
             <p>
               <i>Interactive mixed media, code on computer.</i>
             </p>
