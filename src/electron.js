@@ -15,7 +15,7 @@ const {
 const mouseEvents = __non_webpack_require__("global-mouse-events");
 const keyListener = new GlobalKeyboardListener();
 
-const TIMEOUT_MS = 2 * 1000;
+const TIMEOUT_MS =  5 * 60 * 1000;
 window.screensaver = new EventEmitter();
 let showScreenSaver = false;
 

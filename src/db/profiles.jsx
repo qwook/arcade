@@ -2,7 +2,7 @@ export const PROFILES = {
   qwook: {
     name: "Henry Quoc Tran",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["btt"],
+    games: [],
     blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
     blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
     aboutMeEN: "",
@@ -14,12 +14,12 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook2: {
-    name: "Henry Quoc Tran2",
+  PandaBeo04: {
+    name: "PandaBeo04",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    games: ["agameaboutme", "dfishyfinal"],
+    blurbEN: <>i make games!!</>,
+    blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -29,12 +29,12 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook3: {
-    name: "Henry Quoc Tran2",
+  Ciiverix: {
+    name: "Quyen Nguyen",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    games: ["bloodtoothtears", "dfishyfinal"],
+    blurbEN: <>i make games!!</>,
+    blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -44,12 +44,12 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook4: {
-    name: "Henry Quoc Tran2",
+  Lin_nguyenn: {
+    name: "Lin_nguyenn",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    games: ["dfishyfinal"],
+    blurbEN: <>i make games!!</>,
+    blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -59,12 +59,12 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook5: {
-    name: "Henry Quoc Tran2",
+  LAN4032: {
+    name: "LAN4032",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    games: ["downadarkhallway"],
+    blurbEN: <>i make games!!</>,
+    blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -74,12 +74,12 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook6: {
-    name: "Henry Quoc Tran2",
+  ArceStarwalker: {
+    name: "ArceStarwalker",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    games: ["firstprinciple"],
+    blurbEN: <>i make games!!</>,
+    blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -89,12 +89,12 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook7: {
-    name: "Henry Quoc Tran2",
+  theguyser: {
+    name: "Bao",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    games: ["mineblast"],
+    blurbEN: <>i make games!!</>,
+    blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -104,12 +104,12 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook8: {
-    name: "Henry Quoc Tran2",
+  watehmeloan: {
+    name: "Nhu ",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    games: ["mineblast"],
+    blurbEN: <>i make games!!</>,
+    blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -119,36 +119,6 @@ export const PROFILES = {
       backgroundImage: "",
     }
   },
-  qwook9: {
-    name: "Henry Quoc Tran2",
-    avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    aboutMeEN: "",
-    aboutMeVN: "",
-    theme: {
-      color1: "",
-      color2: "",
-      color3: "",
-      backgroundImage: "",
-    }
-  },
-  qwook10: {
-    name: "Henry Quoc Tran2",
-    avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["test"],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    aboutMeEN: "",
-    aboutMeVN: "",
-    theme: {
-      color1: "",
-      color2: "",
-      color3: "",
-      backgroundImage: "",
-    }
-  }
 }
 
 export const PROFILES_LIST = Object.keys(PROFILES);
