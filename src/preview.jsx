@@ -24,7 +24,7 @@ export function Preview({ show, onCancel, id }) {
   const startGame = () => {
     setPlaying(true);
     if (Launcher) {
-      launcher.current = new Launcher(game.path);
+      launcher.current = new Launcher(game.path, game.args || []);
       launcher.current.start();
       launcher.current.on("loaded", () => {
         setShowGameguard(false);
@@ -98,8 +98,13 @@ export function Preview({ show, onCancel, id }) {
               <i>Interactive mixed media, code on computer.</i>
             </p>
             {game.description}
-            
-            {game.url && <><h3>Play at Home:</h3><QRCodeSVG value={game.url} /></>}
+
+            {game.url && (
+              <>
+                <h3>Play at Home:</h3>
+                <QRCodeSVG value={game.url} />
+              </>
+            )}
           </div>
           {mediaList && (
             <div className="media">
