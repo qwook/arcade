@@ -92,6 +92,7 @@ export const GAMES = {
     url: "https://lan4032.itch.io/down-a-dark-hallway",
     screenshots: [],
     path: "DownADarkHallway\\DownADarkHallway.exe",
+    args: ["-screen-fullscreen 0 -screen-height 1000"],
     authors: ["LAN4032"],
     short: <>Walk your scaredy-cat friend home by going down a dark hallway together.</>,
     description: <>
@@ -106,6 +107,7 @@ export const GAMES = {
     url: "https://arcestarwalker.itch.io/the-first-principle",
     screenshots: [],
     path: "First Principle\\The First Principle.exe",
+    args: ["-screen-fullscreen 1 -window-mode borderless"],
     authors: ["ArceStarwalker"],
     short: <>A puzzle game for learning the basic of alchemy</>,
     description: <>

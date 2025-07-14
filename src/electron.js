@@ -8,6 +8,8 @@ import * as path from "path";
 const {
   ipcRenderer
 } = __non_webpack_require__("electron/renderer");
+const electron = __non_webpack_require__("electron")
+const remote = electron.remote
 
 const {
   GlobalKeyboardListener
@@ -68,18 +70,22 @@ class Launcher extends EventEmitter {
   monitor;
   interval;
   child_process;
+  args;
 
-  constructor(exePath) {
+  constructor(exePath, args) {
     super();
     this.path = exePath;
+    this.args = args;
     this.monitor = new Monitor();
     this.monitor.setCallbacks(() => {
       this.emit("loading");
     }, () => {
       this.emit("loaded");
+      ipcRenderer.send("blur");
     }, () => {
       this.emit("exit");
       this.monitor.kill();
+      ipcRenderer.send("focus");
       clearInterval(this.interval);
     })
     this.interval = setInterval(() => {
@@ -92,7 +98,7 @@ class Launcher extends EventEmitter {
     console.log(path.join(GAMES_ROOT, this.path));
     console.log(this.path);
     console.log(GAMES_ROOT);
-    this.child_process = cp.exec(`"${path.join(GAMES_ROOT, this.path)}"`);
+    this.child_process = cp.exec(`"${path.join(GAMES_ROOT, this.path)}" ${this.args}`);
 
     window.screensaver.once("idle", () => {
       if (this.child_process) {
@@ -101,6 +107,7 @@ class Launcher extends EventEmitter {
           this.emit("exit");
           this.monitor.kill();
           clearInterval(this.interval);
+          ipcRenderer.send("focus");
         } catch (e) {}
       }
     });

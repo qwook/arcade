@@ -23,7 +23,7 @@ export function Preview({ show, onCancel, id }) {
 
   const startGame = () => {
     setPlaying(true);
-    launcher.current = new Launcher(game.path);
+    launcher.current = new Launcher(game.path, game.args || []);
     launcher.current.start();
     launcher.current.on("loaded", () => {
       setShowGameguard(false);
