@@ -235,7 +235,7 @@ export const GAMES = {
       require("../games/mamapleasewait/ZengJQ.png"),
     ],
     path: "MamaPleaseWait!\\Chicken Game.exe",
-    authors: ["LAN4032"],
+    authors: ["LAN4032", "duyenle", "cam"],
     short: (
       <>
         A 2D physics game about a line of baby chicks trying to keep up with
