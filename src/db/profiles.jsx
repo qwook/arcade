@@ -3,8 +3,18 @@ export const PROFILES = {
     name: "Henry Quoc Tran",
     avatar: require("../profiles/qwook/profile.jpg"),
     games: [],
-    blurbEN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
-    blurbVN: <>i'm dancing  <img src={require("../assets/emojis/4.gif")} /> and crocheting~~~</>,
+    blurbEN: (
+      <>
+        i'm dancing <img src={require("../assets/emojis/4.gif")} /> and
+        crocheting~~~
+      </>
+    ),
+    blurbVN: (
+      <>
+        i'm dancing <img src={require("../assets/emojis/4.gif")} /> and
+        crocheting~~~
+      </>
+    ),
     aboutMeEN: "",
     aboutMeVN: "",
     theme: {
@@ -12,7 +22,7 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
   PandaBeo04: {
     name: "PandaBeo04",
@@ -27,7 +37,7 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
   Ciiverix: {
     name: "Quyen Nguyen",
@@ -42,7 +52,7 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
   Lin_nguyenn: {
     name: "Lin_nguyenn",
@@ -57,12 +67,12 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
   LAN4032: {
     name: "LAN4032",
     avatar: require("../profiles/qwook/profile.jpg"),
-    games: ["downadarkhallway"],
+    games: ["mamapleasewait"],
     blurbEN: <>i make games!!</>,
     blurbVN: <>tui lam game!!</>,
     aboutMeEN: "",
@@ -72,7 +82,7 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
   ArceStarwalker: {
     name: "ArceStarwalker",
@@ -87,7 +97,7 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
   theguyser: {
     name: "Bao",
@@ -102,7 +112,7 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
   watehmeloan: {
     name: "Nhu ",
@@ -117,8 +127,8 @@ export const PROFILES = {
       color2: "",
       color3: "",
       backgroundImage: "",
-    }
+    },
   },
-}
+};
 
 export const PROFILES_LIST = Object.keys(PROFILES);

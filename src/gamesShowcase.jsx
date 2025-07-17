@@ -19,12 +19,36 @@ import { MeGank } from "./megank";
 
 window.setFullscreen && window.setFullscreen(true);
 
+const STORY_GAMES = Object.keys(GAMES).filter(
+  (key) => GAMES[key].category === "story"
+);
+
+const ARCADE_GAMES = Object.keys(GAMES).filter(
+  (key) => GAMES[key].category === "arcade"
+);
+
 function Games({ onGameSelect }) {
   return (
-    <div className="games">
-      {GAMES_LIST.map((id) => {
+    <div className="games-categories">
+      <div className="category category-1">
+        <div className="category-header">STORY-BASED</div>
+        <div className="category-body">
+          {STORY_GAMES.map((id) => {
+            return <Game id={id} onGameSelect={onGameSelect} />;
+          })}
+        </div>
+      </div>
+      <div className="category category-2">
+        <div className="category-header">ARCADE</div>
+        <div className="category-body">
+          {ARCADE_GAMES.map((id) => {
+            return <Game id={id} onGameSelect={onGameSelect} />;
+          })}
+        </div>
+      </div>
+      {/* {GAMES_LIST.map((id) => {
         return <Game id={id} onGameSelect={onGameSelect} />;
-      })}
+      })} */}
     </div>
   );
 }
