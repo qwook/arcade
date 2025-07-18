@@ -50,7 +50,7 @@ export const GAMES = {
     category: "story",
   },
   canhoso4: {
-    title: "Can Ho So 4",
+    title: "Căn Hộ Số 4",
     preview: require("../games/canhoso4/preview.png"),
     video: require("../games/canhoso4/CanHoSo4.mp4"),
     screenshots: [
@@ -58,11 +58,24 @@ export const GAMES = {
       require("../games/canhoso4/2.png"),
     ],
     path: "Can Ho So 4\\My project.exe",
-    authors: [],
+    authors: ["khoatrandang", "vytrieu"],
     short: <>Explore a haunted apartment</>,
     description: (
       <>
-        <p>TODO</p>
+        <p>
+          <strong>Căn Hộ Số 4</strong> is a puzzle game that takes place in a
+          haunted apartment in Vietnam. You play as a reporter who comes to
+          uncover the truth behind the strange rumors about the building. The
+          story is slowly revealed as you progress through the game. We also
+          included many everyday Vietnamese items to make the game feel
+          familiar.
+        </p>
+        <p>
+          Our goal is to share Vietnamese culture through this game. The game’s
+          visuals are based on real-life buildings in Vietnam. This is our first
+          3D game, and each team member had a different role. We all worked
+          together to create a memorable and engaging experience for players.
+        </p>
       </>
     ),
     category: "story",
@@ -147,17 +160,6 @@ export const GAMES = {
     description: (
       <>
         <p>
-          <strong>
-            <em>
-              Kindly do NOT press the Quit button, as it is designed for the
-              application build.
-            </em>
-          </strong>
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
           A puzzle where you utilize the elemental gems of alchemy to try and
           create as many gold gems as possible.
         </p>
@@ -209,14 +211,12 @@ export const GAMES = {
           anxiety as a child about the future.
           <br />
         </p>
-        <p>---</p>
         <p>
-          <strong>Controls:&nbsp;</strong> Scroll to zoom, hold the left mouse
-          button and drag&nbsp;to look around.
+          <strong>Controls:</strong> Scroll to zoom, hold the left mouse button
+          and drag&nbsp;to look around.
         </p>
-        <p>---</p>
         <p>
-          Music: Pulseby Antent
+          <strong>Music:</strong> Pulseby Antent
           <br />
           Fonts: Vinivicious and Vinizinho&nbsp;by&nbsp;vinizinho
         </p>

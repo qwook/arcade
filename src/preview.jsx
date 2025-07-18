@@ -4,6 +4,7 @@ import { GAMES } from "./db/games";
 import { Router } from "./router";
 import { PROFILES } from "./db/profiles";
 import { QRCodeSVG } from "qrcode.react";
+import { v4 as uuid } from "uuid";
 
 const Launcher = window.Launcher;
 
@@ -24,13 +25,37 @@ export function Preview({ show, onCancel, id }) {
   const startGame = () => {
     setPlaying(true);
     if (Launcher) {
+      const instanceUuid = uuid();
       launcher.current = new Launcher(game.path, game.args || []);
       launcher.current.start();
       launcher.current.on("loaded", () => {
         setShowGameguard(false);
       });
+      window.dataLog(
+        JSON.stringify({
+          instanceUuid,
+          gameId: id,
+          time: Date.now(),
+          event: "start",
+        })
+      );
       launcher.current.on("exit", () => {
+        window.dataLog(
+          JSON.stringify({
+            instanceUuid,
+            gameId: id,
+            time: Date.now(),
+            event: "end",
+          })
+        );
+
         setPlaying(false);
+
+        // HACK: Kill every game that exists on exit.
+        // I know this sucks but some games linger.
+        for (const id of GAMES_LIST) {
+          window.killApp && window.killApp(GAMES[id].path);
+        }
       });
     }
   };
@@ -94,9 +119,9 @@ export function Preview({ show, onCancel, id }) {
                   </h1>
                 );
               })}
-            <p>
+            {/* <p>
               <i>Interactive mixed media, code on computer.</i>
-            </p>
+            </p> */}
             {game.description}
 
             {game.url && (

@@ -138,8 +138,10 @@ body {
     border-radius: 6px;
 
     .category-header {
+      font-size: 18px;
       font-weight: bold;
       margin-bottom: 10px;
+      border-bottom: 1px solid rgb(162, 170, 225);
     }
 
     .category-body {
@@ -608,6 +610,7 @@ body {
   }
 
   .logo {
+    cursor: pointer;
     background-image: url("./assets/megank.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -743,6 +746,7 @@ body {
   font-size: 14px;
 
   .logo {
+    cursor: pointer;
     background-image: url("./assets/yahoo-masshead.png");
     background-repeat: no-repeat;
     background-position: 0px 0px;
@@ -823,6 +827,7 @@ body {
   right: 0;
   bottom: 0;
   cursor: none;
+  z-index: 1000;
   // background-color: red;
 }
 
@@ -839,5 +844,35 @@ body {
     background-color: rgb(223, 230, 255);
     padding: 5px;
     border: 1px solid rgb(143, 164, 238);
+  }
+}
+
+.qr-link-text {
+  position: relative;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+
+  .qr-link {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 10px;
+    z-index: 5;
+    margin-left: 10px;
+    padding: 10px;
+    background: white;
+    text-align: center;
+    color: black;
+    pointer-events: none;
+    border: 1px solid pink;
+    border-radius: 0 6px 6px 6px;
+  }
+
+  &:hover {
+    color: purple;
+    .qr-link {
+      display: block;
+    }
   }
 }
