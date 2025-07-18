@@ -97,18 +97,40 @@ export const PROFILES: Profile = {
     },
   },
   Lin_nguyenn: {
-    name: "Lin_nguyenn",
-    avatar: require("../assets/placeholders/missing.png"),
-    games: ["dfishyfinal"],
-    blurbEN: <>i make games!!</>,
+    name: "Nguyen Pham Thu Linh",
+    age: "20",
+    location: "Ho Chi Minh City",
+    avatar: require("../profiles/linnguyen/avatar.png"),
+    games: ["insidemy10yearoldhead", "dfishyfinal"],
+    blurbEN: (
+      <>
+        Because there was only one computer in the house, my brother and I
+        always fought over it — to the point where we even came up with sneaky
+        plans to “borrow” the computer behind my Mom’s back just to play more
+        games :))
+      </>
+    ),
     blurbVN: <>tui lam game!!</>,
-    aboutMeEN: "",
-    aboutMeVN: "",
+    aboutMeEN: (
+      <>
+        Back in elementary school, during computer class, my best friend and I’d
+        usually pick computers at the back of the room to secretly play games :
+        {")))"} Since the school computers didn’t have any games installed, our
+        only option was to play web games. I remember the top-tier web games
+        back then were Game24h, Y8, Sóc Nhí... While playing, we also need to
+        keep an eye on the teacher, and whenever she got close, we’d quickly
+        switch tabs and pretend to do something else more legal.
+      </>
+    ),
+    aboutMeVN: <></>,
     theme: {
       color1: "",
       color2: "",
       color3: "",
       backgroundImage: "",
+    },
+    social: {
+      fb: "lukas.kebnersol",
     },
   },
   LAN4032: {
@@ -356,23 +378,128 @@ export const PROFILES: Profile = {
       backgroundImage: "",
     },
   },
+  khoatrandang: {
+    name: "Khoa Tran Dang",
+    avatar: require("../profiles/TranDangKhoa.jpg"),
+    games: ["canhoso4"],
+    blurbEN: (
+      <>
+        Oh I actually go out and ask my dad to buy a crack Minecraft that they
+        download into a dvd and you just put it in the pc and play.
+      </>
+    ),
+    blurbVN: <>tui lam game!!</>,
+    aboutMeEN: (
+      <>
+        I remember back then we used to have a CRT PC set, it was so fun when me
+        and my cousins fighting each other over it. I remember we used to play
+        Neighbours from hell, helicopter, and running man, these game are so
+        nostalgic. Oh I actually go out and ask my dad to buy a crack Minecraft
+        that they download into a dvd and you just put it in the pc and play.
+        Those time are so fun.
+      </>
+    ),
+    aboutMeVN: "",
+    theme: {
+      color1: "",
+      color2: "",
+      color3: "",
+      backgroundImage: "",
+    },
+    social: {
+      fb: "tran.james.522",
+    },
+  },
+  vytrieu: {
+    name: "Vỹ Trieu",
+    avatar: require("../profiles/VyTrieu.jpg"),
+    games: ["canhoso4"],
+    blurbEN: (
+      <>
+        my family never bought a computer because my parents were worried I’d
+        use it too much, and they believed it would be bad for my eyes.
+      </>
+    ),
+    blurbVN: <>tui lam game!!</>,
+    aboutMeEN: (
+      <>
+        Before high school, my family never bought a computer because my parents
+        were worried I’d use it too much, and they believed it would be bad for
+        my eyes. So, when I was young, I had very little experience with PC
+        games. It wasn’t until I went to university that I finally had my own
+        laptop. Back then, I didn’t realize that you were supposed to pay for
+        games or software, I honestly thought it wasn’t necessary. That changed
+        during my first assignment about game development. I wanted to draw
+        pixel art, but all the free tools I found online were too difficult to
+        use. That’s when a friend suggested I download a cracked version of
+        Aseprite. At first, it felt like a smart solution. But then I started to
+        feel that it was unfair to those who actually paid for it. I also began
+        to understand that paying for software is a way to support the
+        developers who made it. It made me think: what would happen to my own
+        game in the future if people just downloaded it illegally? So in the
+        end, I decided to pay for Aseprite and I’m glad I did.
+      </>
+    ),
+    aboutMeVN: "",
+    theme: {
+      color1: "",
+      color2: "",
+      color3: "",
+      backgroundImage: "",
+    },
+    social: {
+      fb: "trieu.vy.593455",
+    },
+  },
   qwook: {
     name: "Henry Quoc Tran",
+    location: "San Jose, California",
     avatar: require("../profiles/qwook/profile.jpg"),
     games: [],
     blurbEN: (
       <>
-        i'm dancing <img src={require("../assets/emojis/4.gif")} /> and
-        crocheting~~~
+        I grew up on neopets and habbo hotel, and got really into garry's mod
+        when I was a teenager!
       </>
     ),
-    blurbVN: (
+    blurbVN: <></>,
+    social: {
+      ig: "nohurryhen",
+    },
+    aboutMeEN: (
       <>
-        i'm dancing <img src={require("../assets/emojis/4.gif")} /> and
-        crocheting~~~
+        <p>
+          Thanks so much for coming out and supporting student game developers!
+          My college used to have retro arcade cabinets that showcased
+          student-made games, and I wanted to do the same in Vietnam.
+        </p>
       </>
     ),
-    aboutMeEN: "",
+    aboutMeVN: "",
+    theme: {
+      color1: "",
+      color2: "",
+      color3: "",
+      backgroundImage: "",
+    },
+  },
+  toby: {
+    name: "Dzuy Anh Do (Toby)",
+    avatar: require("../profiles/qwook/profile.jpg"),
+    games: [],
+    blurbEN: <>I like garry's mod {":^))"}</>,
+    blurbVN: <></>,
+    social: {
+      ig: "dzuyanhdo",
+    },
+    aboutMeEN: (
+      <>
+        <p>
+          Toby hasn't sent me a paragraph about his experience with games yet so
+          this is Henry speaking. Please check out his game "loading..."
+        </p>
+      </>
+    ),
     aboutMeVN: "",
     theme: {
       color1: "",

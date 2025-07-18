@@ -68,8 +68,11 @@ export function MeGank({ children, screen, setScreen, onGameSelect }) {
               <Lag className="center">
                 <Lag className="topbar">
                   <Lag className="mainbar">
-                    <Lag className="logo"></Lag>
-                    <Lag>Xin chao ban! [ EN / VN ]</Lag>
+                    <Lag
+                      className="logo"
+                      onClick={() => setScreen("home")}
+                    ></Lag>
+                    <Lag>Xin chao ban!</Lag>
                   </Lag>
                   <Lag className="subbar">
                     <Lag className="nav">
@@ -97,7 +100,7 @@ export function MeGank({ children, screen, setScreen, onGameSelect }) {
           return (
             <Lag className="zing">
               <Lag className="left">
-                <Lag className="logo"></Lag>
+                <Lag className="logo" onClick={() => setScreen("home")}></Lag>
                 <Lag className="sidebar">
                   {nav.map((item) => {
                     return (
@@ -173,7 +176,7 @@ export function MeGank({ children, screen, setScreen, onGameSelect }) {
                       <Lag className="search-icon"></Lag>
                     </Lag>
                   </Lag>
-                  <Lag>EN / VN</Lag>
+                  {/* <Lag>EN / VN</Lag> */}
                 </Lag>
                 <Lag className="content">{children}</Lag>
               </Lag>

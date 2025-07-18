@@ -95,10 +95,6 @@
     align-items: flex-start;
     cursor: pointer;
 
-    &:hover {
-      opacity: 0.7;
-    }
-
     .person {
       display: flex;
       flex-direction: column;
@@ -121,6 +117,22 @@
         font-size: 11px;
         text-decoration: underline;
       }
+    }
+
+    &:hover {
+      .name {
+        color: red;
+        font-weight: bold;
+      }
+
+    .quote {
+      background: linear-gradient(
+        0deg,
+        rgb(248, 224, 170) 0%,
+        rgb(255, 241, 181) 50%,
+        rgb(255, 255, 249) 100%
+      );
+    }
     }
 
     .quote {
