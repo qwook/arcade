@@ -13,6 +13,7 @@
     "@p5-wrapper/react": "^4.4.2",
     "@react-three/fiber": "^8.18.0",
     "electron": "^28.2.3",
+    "fast-fuzzy": "^1.12.0",
     "p5js": "^1.2.18",
     "qrcode.js": "^0.0.1",
     "qrcode.react": "^4.2.0",
