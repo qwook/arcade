@@ -4,11 +4,13 @@ import reportWebVitals from "sk2tch/utils/reportWebVitals";
 
 import "./style.scss";
 import GamesShowcase from "./gamesShowcase";
+// import { Zine } from "./zine";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GamesShowcase />
+    {/* <Zine /> */}
   </React.StrictMode>
 );
 

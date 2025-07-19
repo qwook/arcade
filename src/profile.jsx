@@ -54,6 +54,9 @@ export function Profile({ id }) {
                 </QRLink>
               </li>
             )}
+            <br />
+            {profile.age && <li>Age: {profile.age}</li>}
+            {profile.location && <li>Location: {profile.location}</li>}
           </ul>
         </Lag>
       </Lag>

@@ -9,6 +9,14 @@ export function Home() {
     >
       <Lag>
         <h1>Mẹ Gank</h1>
+        <h2>
+          written by{" "}
+          <QRLink href="https://instagram.com/nohurryhen">
+            Henry Quoc Tran
+          </QRLink>{" "}
+          <br />
+          (Creator of Last Seen Online)
+        </h2>
       </Lag>
       <img
         style={{ position: "absolute", left: 450, width: 300 }}
@@ -39,11 +47,30 @@ export function Home() {
         Play through games made by students at RMIT Vietnam on an old internet
         coffee shop setup!
       </p>
+      <h1>Game Curation</h1>
+      <h2>
+        written by{" "}
+        <QRLink href="https://instagram.com/dzuyanhdo">Dzuy Anh Do</QRLink>{" "}
+        <br />
+        (Creator of Loading...)
+      </h2>
+      <p>
+        The video games featured in this installation are all student projects
+        made for a variety of game design courses I teach at RMIT University.
+        Some were made as part of an intro to coding class, others were made for
+        a level design course, rapid prototyping etc. However, what binds all of
+        these games together is that they feel personal. After playing them, I
+        feel like I know the designers a little better; what makes them laugh,
+        what makes them sad, what makes them angry… The games feel like
+        representations of the interests and concerns of the people who made
+        them.{" "}
+      </p>
       <Lag>
         <h1>The Vietnamese Internet</h1>
         <h2>
           written by{" "}
-          <QRLink href="https://instagram.com/tanxnguyenn">Tân Nguyễn</QRLink>
+          <QRLink href="https://instagram.com/tanxnguyenn">Tân Nguyễn</QRLink>{" "}
+          (Soulvenir)
         </h2>
       </Lag>
       <p>
