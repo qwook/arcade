@@ -486,7 +486,7 @@ export const PROFILES: Profile = {
   },
   toby: {
     name: "Dzuy Anh Do (Toby)",
-    avatar: require("../profiles/qwook/profile.jpg"),
+    avatar: require("../profiles/toby.jpg"),
     games: [],
     blurbEN: <>My top 5 games are Devotion, Katamari Damacy, All Our Asias, Lost Memories Dot Net, and Pokemon Crystal. </>,
     blurbVN: <></>,

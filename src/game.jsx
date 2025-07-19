@@ -8,7 +8,16 @@ export function Game({ id, onGameSelect }) {
   const video = useRef();
 
   return (
-    <Lag className="game" onClick={() => onGameSelect(id)}>
+    <Lag
+      onMouseEnter={() => {
+        video.current && video.current.play();
+      }}
+      onMouseLeave={() => {
+        video.current && video.current.pause();
+      }}
+      className="game"
+      onClick={() => onGameSelect(id)}
+    >
       <div
         className="preview"
         style={{
@@ -17,9 +26,9 @@ export function Game({ id, onGameSelect }) {
           )})`,
         }}
       >
-        {game.video && <video onMouseEnter={() => {
-          video.current.play();
-        }} ref={video} className="gameplay" src={game.video} autoplay loop muted />}
+        {game.video && (
+          <video ref={video} className="gameplay" src={game.video} loop muted />
+        )}
       </div>
       <div className="title">{game.title}</div>
       <div className="sticky">
