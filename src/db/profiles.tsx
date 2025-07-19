@@ -473,6 +473,7 @@ export const PROFILES: Profile = {
           My college used to have retro arcade cabinets that showcased
           student-made games, and I wanted to do the same in Vietnam.
         </p>
+        <p>When I was growing up I played a lot of games that steathily taught me how to program. Neopets for example taught me how to write HTML and CSS. Garry's Mod taught me how to write Lua, and how logic gates work. And now I'm here! Crazy right?</p>
       </>
     ),
     aboutMeVN: "",
@@ -487,7 +488,7 @@ export const PROFILES: Profile = {
     name: "Dzuy Anh Do (Toby)",
     avatar: require("../profiles/qwook/profile.jpg"),
     games: [],
-    blurbEN: <>I like garry's mod {":^))"}</>,
+    blurbEN: <>My top 5 games are Devotion, Katamari Damacy, All Our Asias, Lost Memories Dot Net, and Pokemon Crystal. </>,
     blurbVN: <></>,
     social: {
       ig: "dzuyanhdo",
@@ -495,8 +496,7 @@ export const PROFILES: Profile = {
     aboutMeEN: (
       <>
         <p>
-          Toby hasn't sent me a paragraph about his experience with games yet so
-          this is Henry speaking. Please check out his game "loading..."
+          When I was 5 or 6, my family went on a road trip from Los Angeles to San Francisco. I was playing Pokemon Gold in the car walking around Golden Rod City. That game has a real time clock so whatever time it is in real life, is what time it is in game. We were nearing the end of our trip and as the sun was setting outside, the game was turning to night as well. Seeing people turn on the lights of their apartment outside the car window and then seeing the same thing happen in game left a big impression on me and I guess was the first time I really felt how magical games could be.
         </p>
       </>
     ),

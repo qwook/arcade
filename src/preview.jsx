@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import escapeCssUrl from "sk2tch/utils/escapeCssUrl";
-import { GAMES } from "./db/games";
+import { GAMES, GAMES_LIST } from "./db/games";
 import { Router } from "./router";
 import { PROFILES } from "./db/profiles";
 import { QRCodeSVG } from "qrcode.react";

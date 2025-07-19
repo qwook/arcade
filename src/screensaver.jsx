@@ -4,6 +4,7 @@ import p5 from "p5";
 export const ScreenSaver = () => {
   const [showScreenSaver, setShowScreenSaver] = useState(false);
   const TIMEOUT_MS = 1 * 1000;
+  const screenSaverVideo = useRef();
   useEffect(() => {
     if (!window.screensaver) return;
     const activityCb = () => {
@@ -45,25 +46,31 @@ export const ScreenSaver = () => {
 
   const parent = useRef();
   const pRef = useRef();
+  screenSaverVideo.current = parent.current && parent.current.firstChild;
 
   useEffect(() => {
     const p = new p5(() => {}, parent.current);
     pRef.current = p;
 
-    let video;
+    // let video;
 
     p.setup = () => {
-      p.createCanvas(1024, 768);
-      video = p.createVideo(require("./assets/screensaver.mp4"));
-      video.loop();
-      video.hide();
+      const canvas = p.createCanvas(1024, 768);
+      canvas.style.position = "absolute";
+      canvas.style.top = "0";
+      canvas.style.left = "0";
+      canvas.style.zIndex = "1";
+      // video = p.createVideo(require("./assets/screensaver.mp4"));
+      // video.loop();
+      // video.hide();
     };
 
     p.draw = () => {
-      p.blendMode(p.BLEND);
-      p.image(video, 0, 0);
+      screenSaverVideo.current = parent.current && parent.current.firstChild;
 
-      p.blendMode(p.REMOVE);
+      p.clear();
+      p.blendMode(p.BLEND);
+
       p.fill(255, 255, 255);
       p.textSize(40);
       p.textFont("Arial");
@@ -91,8 +98,10 @@ export const ScreenSaver = () => {
   useEffect(() => {
     if (showScreenSaver) {
       pRef.current.loop();
+      screenSaverVideo.current && screenSaverVideo.current.play();
     } else {
       pRef.current.noLoop();
+      screenSaverVideo.current && screenSaverVideo.current.pause()
     }
   }, [showScreenSaver]);
 
@@ -102,7 +111,7 @@ export const ScreenSaver = () => {
       style={{ display: showScreenSaver ? "block" : "none" }}
       ref={parent}
     >
-      {/* <video autoPlay loop muted src={require("./assets/screensaver.mp4")} /> */}
+      <video style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }} ref={screenSaverVideo} autoPlay loop muted src={require("./assets/screensaver.mp4")} />
     </div>
   );
 };
