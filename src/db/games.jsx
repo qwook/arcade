@@ -25,6 +25,7 @@ export const GAMES = {
     preview: require("../games/bloodtoothtears/preview.png"),
     video: require("../games/bloodtoothtears/BloodToothTears.mp4"),
     url: "https://quyen-cvrix-nguyen.itch.io/blood-tooth-and-tears",
+    args: ["-screen-fullscreen 1 -window-mode borderless"],
     screenshots: [
       require("../games/bloodtoothtears/ADJIpa.png"),
       require("../games/bloodtoothtears/Dpz2xm.png"),
