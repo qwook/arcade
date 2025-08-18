@@ -363,6 +363,79 @@ export const GAMES = {
     ),
     category: "arcade",
   },
+  lso: {
+    title: "Last Seen Online",
+    preview: require("../games/lso/wtflM3.png"),
+    video: require("../games/lso/lso_trailer_short.mp4"),
+    url: "http://lastseenonline.com/",
+    screenshots: [
+      require("../games/lso/3PNaMU.png"),
+      require("../games/lso/0bXXAo.png"),
+      require("../games/lso/YuLoBt.png"),
+    ],
+    path: "lso\\lastseenonline.exe",
+    authors: ["qwook"],
+    short: <>Explore an abandoned computer...</>,
+    description: (
+      <>
+        <p>
+          You were always a snoop, weren’t you? That’s why you bought an old
+          computer you saw lying among piles of junk at a garage sale. You
+          didn’t even bother to format the computer before you turned it on. You
+          were curious. After all, a personal computer is an extension of
+          another person’s soul, all their secrets, projects, interactions.
+        </p>
+        <p>
+          “last seen online” is a psychological horror escape room, based on
+          early flash games. Look through someone's computer files. Solve
+          puzzles and discover the secrets that lie within the computer.
+        </p>
+      </>
+    ),
+    category: "special",
+  },
+  catre: {
+    title: "Cá Trê",
+    preview: require("../games/catre/preview.png"),
+    video: require("../games/catre/catre_short.mp4"),
+    url: "https://tobydo.itch.io/ca-tre/",
+    screenshots: [
+      require("../games/catre/x4wT2k.png"),
+      require("../games/catre/j48hao.png"),
+      require("../games/catre/LgDpxq.png"),
+    ],
+    path: "C  _Trˆ_Windows\\C  _Trˆ.exe",
+    authors: ["toby"],
+    short: <>Walk through a dreamscape and experience the horror of catfish.</>,
+    description: (
+      <>
+        <p>
+          Cá Trê means catfish in Vietnamese. <br />
+          Walk through a dreamscape and experience the horror of catfish.
+          <br />
+          Uses WASD controls. <br />
+        </p>
+
+        <p>Made for Tasting Room Jam: Summer 2019</p>
+
+        <p>
+          Credits:
+          <br />
+          Art, design, sound, writing, and programming by Toby Do
+          <br />
+          Additional art by Ji Hyun Ahn
+          <br />
+          Music by Ryan Yoshikami
+          <br />
+        </p>
+
+        <p>
+          Thanks so much to Nina Freeman and Josh Squires for hosting the jam!
+        </p>
+      </>
+    ),
+    category: "special",
+  },
 };
 
 export const GAMES_LIST = Object.keys(GAMES);

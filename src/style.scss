@@ -151,6 +151,16 @@ body {
       gap: 10px;
       width: 370px;
     }
+
+    &.category-3 {
+      background-color: rgb(255, 248, 172);
+    }
+  }
+
+  .category-split {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 

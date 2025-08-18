@@ -27,6 +27,10 @@ const ARCADE_GAMES = Object.keys(GAMES).filter(
   (key) => GAMES[key].category === "arcade"
 );
 
+const SPECIAL_GAMES = Object.keys(GAMES).filter(
+  (key) => GAMES[key].category === "special"
+);
+
 function Games({ onGameSelect }) {
   return (
     <div className="games-categories">
@@ -38,12 +42,22 @@ function Games({ onGameSelect }) {
           })}
         </div>
       </div>
-      <div className="category category-2">
-        <div className="category-header">ARCADE</div>
-        <div className="category-body">
-          {ARCADE_GAMES.map((id) => {
-            return <Game id={id} onGameSelect={onGameSelect} />;
-          })}
+      <div className="category-split">
+        <div className="category category-2">
+          <div className="category-header">ARCADE</div>
+          <div className="category-body">
+            {ARCADE_GAMES.map((id) => {
+              return <Game id={id} onGameSelect={onGameSelect} />;
+            })}
+          </div>
+        </div>
+        <div className="category category-3">
+          <div className="category-header">SPECIAL</div>
+          <div className="category-body">
+            {SPECIAL_GAMES.map((id) => {
+              return <Game id={id} onGameSelect={onGameSelect} />;
+            })}
+          </div>
         </div>
       </div>
       {/* {GAMES_LIST.map((id) => {
